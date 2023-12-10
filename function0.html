@@ -1,28 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<script>
-    const makeNoise = function() {
-        console.log("hello")
-    }
-    makeNoise()
 
-    const power = function(base, exponent) {
-        let result = 1;
-        for (let count = 0; count < exponent; count++) {
-            result *= base;
-        };
-
-        return result;
-    }
-
-    console.log(power(2, 10))
-</script>
 <body>
-    
+    <p>one</p>
+    <p>two</p>
+    <p>three</p>
+    <p>four</p>
+    <script>
+        let paragraph = document.getElementsByTagName('p');
+        document.body.insertBefore(paragraph[3], paragraph[1]);
+        document.body.replaceChild(paragraph[0], paragraph[3]);
+    </script>
+
+    <p>the <img src="cat.png" alt="cat">in the <img src="hat.png" alt="hat">.</p>
+    <p><button onclick="replaceImages()">Replace</button></p>
+    <script>
+        function replaceImages() {
+            let images = document.body.getElementsByTagName('img');
+            for (let i = images.length - 1; i >= 0; i--) {
+                let image = images[i];
+                if (image.alt) {
+                    let text = document.createTextNode('hello');
+                    image.parentNode.replaceChild(text, image);
+                }
+            }
+        };
+    </script>
+
+    <blockquote id="quote">
+        no book can ever finished , no book can ever finished , no book can ever finished while working
+    </blockquote>
+    <script>
+        function elt(type, ...children) {
+            let node = document.createElement(type);
+            for (let child of children) {
+                if (typeof child != "string") node.appendChild(child);
+                else node.appendChild(document.createTextNode(child));
+            }
+            return node;
+        }
+        document.getElementById("quote").appendChild(elt("footer", "-", elt("Strong", "karl Popper"), "second edition of ", elt("em", "the open")))
+    </script>
+
+    <p data-classi="secret"> The launch code is 0000000</p>
+    <p data-classi="unclassified"> I have twe feet.</p>
+    <button onclick="removep()">Remove</button>
+    <script>
+        function removep() {
+            let paras = document.body.getElementsByTagName('p');
+            for (let para of Array.from(paras)) {
+                console.log(para);
+                if (para.getAttribute("data-classi") == 'secret') {
+                    para.remove();
+                }
+            }
+        }
+        let button = document.querySelector("button");
+        button.addEventListener("click", () => {
+            console.log("button clicked");
+        })
+    </script>
+
+
+    <p class="lyot" style="border: 3px solid red ;" >this is box</p>
+    <script>
+        let para = document.body.getElementsByClassName("lyot");
+        console.log(pageYOffset);
+    </script>
+
+    <p><span id="one"></span></p>
+    <p><span id="two"></span></p>
+
+    <script>
+        function time(name, action) {
+            let start = Date.now();
+            action();
+            console.log(name, "took", Date.now() - start, "ms")
+        }
+        time("naive", () => {
+            let target = document.getElementById("one");
+            while (target.offsetWidth < 2000) {
+               target.appendChild(document.createTextNode("X"));
+            }
+        })  
+        
+        window.addEventListener("click", () => {
+            console.log("clicked");
+        })
+    </script>
+
 </body>
+
 </html>
