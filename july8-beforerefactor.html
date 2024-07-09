@@ -8025,26 +8025,25 @@
   }
 
   function showOperatingComment(elem, id = "") {
-    let tableBodyLength = document.getElementById("device-grid-body-2")
-    console.log(tableBodyLength , "hell")
     if (elem.value === "others") {
       $(`#operating-comment${id}`).removeClass("hidden")
-      // $(`#operating-comment-th$`).removeClass("hidden")
+     
     }
    else {
       $(`#operating-comment${id}`).addClass("hidden")
-      // $(`#operating-comment-th`).addClass("hidden")
     }
     let opm = $('#dropdownDeviceInfoOperatingSystem1').val()
-    let op = $('#op').val()
     let op1 = $('#op1').val()
     let op2 = $('#op2').val()
     let op3 = $('#op3').val()
     let op4 = $('#op4').val()
-    console.log(op, op2, op3, op4, opm)
-    if (op === "others" || op1 === "others"  ) {
-      console.log(op, op2, op3, op4, opm)
-    }
+    if (opm === "others" || op1 === "others" || op2 === "others" || op4 === "others" || op3 === "others"  ) {
+      $(`#operating-comment-th`).removeClass("hidden") 
+      
+  } else {
+    $(`#operating-comment-th`).addClass("hidden")
+    $(`#operating-comment${id}`).addClass("hidden")
+  }
     
   }
 
@@ -8125,14 +8124,14 @@
                             <td><input name="" type="text" maxlength="50" value="" class="text input-box form-control device-module-controls txt-model" /></td>
                             <td><input name="" type="text" maxlength="50" value="" class="text input-box form-control device-module-controls txt-tac" /></td>
                             <td ">
-                                <select id="op1"  class="select form-control device-module-controls txt-os input-box" onchange="showOperatingComment(this, ${row + 1})" >
+                                <select id="op${row + 1}"  class="select form-control device-module-controls txt-os input-box" onchange="showOperatingComment(this, ${row + 1})" >
                                   <option value="">Select...</option>
                                   <option value="Apple">Apple</option>
                                   <option value="Android">Android</option>
                                   <option value="others">Other</option>
                                 </select>
                               </td>
-                              <td id="operating-comment${row + 1} " ><input name="" type="text" maxlength="50" value="" placeholder="Enter Name"
+                              <td id="operating-comment${row + 1}" class="hidden" ><input name="" type="text" maxlength="50" value="" placeholder="Enter Name"
                               class="text input-box form-control device-module-controls txt-tac  " /></td>
                             <td>
                               <select class="select form-control device-module-controls txt-os input-box" onchange="showIpv6Comments(this)">
