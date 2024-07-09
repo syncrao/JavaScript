@@ -4051,7 +4051,7 @@
           <input style="display: none;" class="input-box" maxlength="500" type="text" id="UseCaseId" />
           <span class="error" id="dateError"></span>
         </fieldset>
-        <span class="validation-message" id="errorMessage"></span>
+        
         <button type="submit" class="hidden" disabled id="submitButton">Save</button>
         <!-- Added ID for the submit button -->
       </form>
@@ -8865,7 +8865,7 @@
       $('#btnNext').removeAttr('disabled');
       $('#submitFromButton').removeAttr('disabled');
 
-      $("#emailMessage").text("")
+      
 
       $("#nameMessage1").text("")
       $("#nameMessage2").text("")
@@ -8878,59 +8878,52 @@
 
     } else {
       if (firstname1) {
-        $("#errorMessage").text("")
         $("#nameMessage1").text("")
       } else {
-        $("#errorMessage").text("Please enter a valid Name.")
         $("#nameMessage1").text("Please enter a valid Name.")
       }
       if (lastname1) {
-        $("#errorMessage").text("")
         $("#nameMessage2").text("")
       } else {
-        $("#errorMessage").text("Please enter a valid Name.")
         $("#nameMessage2").text("Please enter a valid Name.")
       }
       if (firstname2) {
-        $("#errorMessage").text("")
         $("#nameMessage3").text("")
       } else {
-        $("#errorMessage").text("Please enter a valid Name.")
         $("#nameMessage3").text("Please enter a valid Name.")
       }
       if (lastname2) {
-        $("#errorMessage").text("")
+     
         $("#nameMessage4").text("")
       } else {
-        $("#errorMessage").text("Please enter a valid Name.")
         $("#nameMessage4").text("Please enter a valid Name.")
       }
       if (phonenumber1) {
-        $("#errorMessage").text("")
+    
         $("#phoneMessage1").text("")
       } else {
-        $("#errorMessage").text("Please enter a valid Number.")
+ 
         $("#phoneMessage1").text("Please enter a valid Number.")
       }
       if (phonenumber2) {
-        $("#errorMessage").text("")
+    
         $("#phoneMessage2").text("")
       } else {
-        $("#errorMessage").text("Please enter a valid Number.")
+    
         $("#phoneMessage2").text("Please enter a valid Number.")
       }
       if (email1) {
-        $("#errorMessage").text("")
+ 
         $("#emailMessage1").text("")
       } else {
-        $("#errorMessage").text("Please enter a valid Email.")
+ 
         $("#emailMessage1").text("Please enter a valid Email.")
       }
       if (email2) {
-        $("#errorMessage").text("")
+        
         $("#emailMessage2").text("")
       } else {
-        $("#errorMessage").text("Please enter a valid Email.")
+ 
         $("#emailMessage2").text("Please enter a valid Email.")
       }
 
