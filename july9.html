@@ -41,7 +41,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Forms</title>
-  <!--<link rel="stylesheet" href="./style.css" />-->
+  <link rel="stylesheet" href="./july8-beforerefactor.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
@@ -49,6 +49,8 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
   <script>
     /*! jQuery v3.7.1 | (c) OpenJS Foundation and other contributors | jquery.org/license */
     !(function (e, t) {
@@ -3893,13 +3895,13 @@
         <tr>
           <td>Business Contact <span class="mandatory">*</span></td>
           <td><input onchange="validateAllCustInfo()" class="input-box" value="{{ craf0_firstname }}" maxlength="100"
-              type="text" id="FirstName1" /></td>
+              type="text" id="FirstName1" /><span class="validation-message" id="nameMessage1" ></span></td> 
           <td><input onchange="validateAllCustInfo()" class="input-box" value="{{ craf0_lastname }}" maxlength="100"
-              type="text" id="LastName1" /></td>
+              type="text" id="LastName1" /><span class="validation-message" id="nameMessage2" ></span></td>
           <td><input onchange="validateAllCustInfo()" class="input-box" value="{{ craf0_email }}" maxlength="100"
-              type="email" id="Email1" /></td>
-          <td><input onchange="validateAllCustInfo()" class="input-box" value="{{ craf0_phone }}" maxlength="100"
-              type="tel" id="Phone1" /></td>
+              type="email" id="Email1" /><span class="validation-message" id="emailMessage1" ></span></td>
+          <td><input  onchange="validateAllCustInfo()" class="input-box" value="{{ craf0_phone }}" maxlength="100"
+              type="tel" id="Phone1" /> <span class="validation-message" id="phoneMessage1" ></span></td>
           <td><input onchange="validateAllCustInfo()" type="checkbox" class="custom-checkbox approver-checkbox"
               id="Approver1" name="approver" /></td>
           <td style="display: none;" class="input-box" maxlength="500" type="text" id="ContactId1"></td>
@@ -3907,13 +3909,13 @@
         <tr>
           <td>Technical Contact <span class="mandatory">*</span></td>
           <td><input onchange="validateAllCustInfo()" class="input-box" value="{{ craf0_firstname2 }}" maxlength="100"
-              type="text" id="FirstName2" /></td>
+              type="text" id="FirstName2" /><span class="validation-message" id="nameMessage3" ></span></td>
           <td><input onchange="validateAllCustInfo()" class="input-box" value="{{ craf0_lastname2 }}" maxlength="100"
-              type="text" id="LastName2" /></td>
+              type="text" id="LastName2" /><span class="validation-message" id="nameMessage4" ></span></td>
           <td><input onchange="validateAllCustInfo()" class="input-box" value="{{ craf0_email2 }}" maxlength="100"
-              type="email" id="Email2" /></td>
+              type="email" id="Email2" /><span class="validation-message" id="emailMessage2" ></span></td>
           <td><input onchange="validateAllCustInfo()" class="input-box" value="{{ craf0_phone2 }}" maxlength="100"
-              type="tel" id="Phone2" /></td>
+              type="tel" id="Phone2" /> <span class="validation-message" id="phoneMessage2" ></span></td>
           <td><input onchange="validateAllCustInfo()" type="checkbox" class="custom-checkbox approver-checkbox"
               id="Approver2" name="approver" /></td>
           <td style="display: none;" class="input-box" maxlength="500" type="text" id="ContactId2"></td>
@@ -4049,13 +4051,14 @@
           <input style="display: none;" class="input-box" maxlength="500" type="text" id="UseCaseId" />
           <span class="error" id="dateError"></span>
         </fieldset>
+        
         <button type="submit" class="hidden" disabled id="submitButton">Save</button>
         <!-- Added ID for the submit button -->
       </form>
       <div class="w-full flex justify-evenly" style="margin-top: 25px">
         <button disabled id="submitFromButton" onclick="createCustomerInfo();createContactInfo();createUseCase()"
           class="button-custom">Save</button>
-        <button onclick="moveFirstForm()" disabled id="btnNext"
+        <button disabled onclick="moveFirstForm()" id="btnNext"
           class="button-custom flex items-center justify-center gap-5">Next <span style="font-size: 15px"
             class="material-symbols-outlined">arrow_forward_ios</span></button>
       </div>
@@ -4079,7 +4082,8 @@
                       href="https://wholesale.t-mobile.com/iot/device-certification/"
                       target="_blank">https://wholesale.t-mobile.com/iot/device-certification/</a><a
                       href="https://wholesale.t-mobile.com/iot/modules-chipsets-devices/">
-                      <span class="glyphicon glyphicon-share"></span>
+                  
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000"><path d="M216-144q-29.7 0-50.85-21.15Q144-186.3 144-216v-528q0-29.7 21.15-50.85Q186.3-816 216-816h264v72H216v528h528v-264h72v264q0 29.7-21.15 50.85Q773.7-144 744-144H216Zm171-192-51-51 357-357H576v-72h240v240h-72v-117L387-336Z"/></svg>
                     </a>
                   </label>
                   <label style="font-weight: bold; margin-top: 10px; display: block;">
@@ -4087,7 +4091,7 @@
                       href="https://wholesale.t-mobile.com/iot/modules-chipsets-devices/"
                       target="_blank">https://wholesale.t-mobile.com/iot/modules-chipsets-devices/</a><a
                       href="https://wholesale.t-mobile.com/iot/modules-chipsets-devices/">
-                      <span class="glyphicon glyphicon-share"></span>
+                      <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000"><path d="M216-144q-29.7 0-50.85-21.15Q144-186.3 144-216v-528q0-29.7 21.15-50.85Q186.3-816 216-816h264v72H216v528h528v-264h72v264q0 29.7-21.15 50.85Q773.7-144 744-144H216Zm171-192-51-51 357-357H576v-72h240v240h-72v-117L387-336Z"/></svg>
                     </a>
                   </label>
                 </div>
@@ -4175,6 +4179,7 @@
                             <th class="th-MakeModelTAC">Model</th>
                             <th class="th-MakeModelTAC">TAC</th>
                             <th class="th-MakeModelTAC">Operating System</th>
+                            <th class="th-MakeModelTAC hidden" id="operating-comment-th" >Enter Operating System Name</th>
                             <th class="th-MakeModelTAC">IPV6 supported</th>
                             <th class="th-MakeModelTAC">OTA update supported</th>
                             <th id="ota-options-th" class="th-MakeModelTAC hidden">OTA Options: check all that apply
@@ -4199,7 +4204,11 @@
                                 <option value="Android">Android</option>
                                 <option value="others">Other</option>
                               </select>
+                      
                             </td>
+                            <td id="hideth" style="text-align: center;" class="hidden"> - </td>
+                            <td id="operating-comment" class="hidden"><input name="" type="text" maxlength="50" id="operating-comment" value="" placeholder="Enter Name"
+                              class="text input-box form-control device-module-controls txt-tac  " /></td>
                             <td>
                               <select class="select form-control device-module-controls txt-os input-box"
                                 id="dropdownDeviceInfoIPv6Supported1" onchange="showIpv6Comments(this)">
@@ -4241,10 +4250,7 @@
                       <div style="font-size: 14px; color: red; font-weight: bold;">This fields are required</div>
 
                     </div>
-                    <div>
-                      <textarea id="operating-comment" class="hidden" placeholder="Operating System Comments"
-                        style="height: 4rem;width: 100%; margin-top: 15px;"></textarea>
-                    </div>
+              
                     <div>
                       <textarea id="ipv6-comment" class="hidden"
                         placeholder="Please provide your roadmap to supporting IPv6"
@@ -6875,7 +6881,7 @@
                         </div> -->
           </div>
         </div>
-        <button class="hidden" type="submit">Submit</button>
+        <button type="submit">Submit</button>
       </form>
       <div class="w-full flex justify-evenly" style="margin-top: 25px">
         <button onclick="backSecondForm()" style="font-size: 18px"
@@ -8020,12 +8026,67 @@
     }
   }
 
-  function showOperatingComment(elem) {
+  function showOperatingComment(elem, id = "") {
     if (elem.value === "others") {
-      $(`#operating-comment`).removeClass("hidden")
-    } else {
-      $(`#operating-comment`).addClass("hidden")
+      $(`#operating-comment${id}`).removeClass("hidden")
+      $(`#hideth${id}`).addClass("hidden")
+
+     
     }
+   else {
+      $(`#operating-comment${id}`).addClass("hidden")
+      $(`#hideth${id}`).removeClass("hidden")
+    }
+    let opm = $('#dropdownDeviceInfoOperatingSystem1').val()
+    let op1 = $('#op1').val()
+    let op2 = $('#op2').val()
+    let op3 = $('#op3').val()
+    let op4 = $('#op4').val()
+    if (opm === "others" || op1 === "others" || op2 === "others" || op4 === "others" || op3 === "others"  ) {
+      $(`#operating-comment-th`).removeClass("hidden") 
+      if(opm === "others") {
+        $(`#hideth`).addClass("hidden")
+      } else {
+        $(`#hideth`).removeClass("hidden")
+      }
+      if(op1 === "others") {
+        $(`#hideth1`).addClass("hidden")
+      } else {
+        $(`#hideth1`).removeClass("hidden")
+      }
+      if(op2 === "others") {
+        $(`#hideth2`).addClass("hidden")
+      } else {
+        $(`#hideth2`).removeClass("hidden")
+      }
+      if(op3 === "others") {
+        $(`#hideth3`).addClass("hidden")
+      } else {
+        $(`#hideth3`).removeClass("hidden")
+      }
+      if(op4 === "others") {
+        $(`#hideth4`).addClass("hidden")
+      } else {
+        $(`#hideth4`).removeClass("hidden")
+      }
+      if(op4 === "others") {
+        $(`#hideth5`).addClass("hidden")
+      } else {
+        $(`#hideth5`).removeClass("hidden")
+      }
+      
+  } else {
+    $(`#operating-comment-th`).addClass("hidden")
+    $(`#operating-comment${id}`).addClass("hidden")
+    $(`#hideth`).addClass("hidden")
+    $(`#hideth1`).addClass("hidden")
+    $(`#hideth3`).addClass("hidden")
+    $(`#hideth2`).addClass("hidden")
+    $(`#hideth4`).addClass("hidden")
+    $(`#hideth5`).addClass("hidden")
+    
+  }
+    
   }
 
   function showIpv6Comments(elem) {
@@ -8087,6 +8148,7 @@
   }
 
   function addRowDevice2(row) {
+    showOperatingComment(this)
     var tableBody = $("#device-grid-2");
     let tableBodyLength = document.getElementById("device-grid-body-2");
     const actionButton = $(`#action-button-grid2-${row}`);
@@ -8104,14 +8166,17 @@
                             <td><input name="" type="text" maxlength="50" value="" class="text input-box form-control device-module-controls txt-make" /></td>
                             <td><input name="" type="text" maxlength="50" value="" class="text input-box form-control device-module-controls txt-model" /></td>
                             <td><input name="" type="text" maxlength="50" value="" class="text input-box form-control device-module-controls txt-tac" /></td>
-                            <td>
-                                <select class="select form-control device-module-controls txt-os input-box" onchange="showOperatingComment(this, ${row + 1})" >
+                            <td ">
+                                <select id="op${row + 1}"  class="select form-control device-module-controls txt-os input-box" onchange="showOperatingComment(this, ${row + 1})" >
                                   <option value="">Select...</option>
                                   <option value="Apple">Apple</option>
                                   <option value="Android">Android</option>
                                   <option value="others">Other</option>
                                 </select>
                               </td>
+                              <td id="hideth${row + 1}" style="text-align: center;" class="hidden"> - </td>
+                              <td id="operating-comment${row + 1}" class="hidden" ><input name="" type="text" maxlength="50" value="" placeholder="Enter Name"
+                              class="text input-box form-control device-module-controls txt-tac  " /></td>
                             <td>
                               <select class="select form-control device-module-controls txt-os input-box" onchange="showIpv6Comments(this)">
                                 <option value="">Select...</option>
@@ -8793,24 +8858,44 @@
   });
 
   function validateAllCustInfo() {
+
+    function validateName(name) {
+      const regex = /^[A-Za-z\s]+$/;
+      return regex.test(name);
+    }
+
+    function validateEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(email);
+    }
+
+    function validateMobile(mobile) {
+      const regex = /^\d{10,15}$/;
+      return regex.test(mobile);
+    }
+
+    
+
+
     const url = $('#urlInput').val() !== '';
     const uspresenceecord = $('#uspresenceecordInput').val() !== '';
     const address1_line1 = $('#streetAddress').val() !== '';
     const address1_city = $('#city').val() !== '';
     const address1_stateorprovince = $('#stateProvince').val() !== '';
     const address1_postalcode = $('#zipCode').val() !== '';
-    const telephone1 = $('#mainPhone').val() !== '';
-    const emailaddress1 = $('#email').val() !== '';
+    const telephone1 = validateMobile($('#mainPhone').val())
+    const emailaddress1 = validateEmail($('#email').val())
     const new_timezone = $("#timeZone").val() !== ''; // Text
     const countryRegion = $('#countryRegion').val() !== '';
-    const firstname1 = $("#FirstName1").val() !== ''; // Text
-    const firstname2 = $("#FirstName2").val() !== ''; // Text
-    const lastname1 = $("#LastName1").val() !== ''; // Text
-    const lastname2 = $("#LastName2").val() !== ''; // Text
-    const email1 = $("#Email1").val() !== ''; // Text
-    const email2 = $("#Email2").val() !== ''; // Text
-    const phonenumber1 = $("#Phone1").val() !== ''; // Whole Number
-    const phonenumber2 = $("#Phone2").val() !== ''; // Whole Number
+    const firstname1 = validateName($("#FirstName1").val())
+    const firstname2 = validateName($("#FirstName2").val())
+    const lastname1 =  validateName($("#LastName1").val())
+    const lastname2 =  validateName($("#LastName2").val())
+    const email1 = validateEmail($('#Email1').val())
+    const email2 = validateEmail($('#Email2').val())
+
+    const phonenumber1 = validateMobile($("#Phone1").val())
+    const phonenumber2 = validateMobile($("#Phone2").val())
     const approver1 = document.getElementById("Approver1").checked; // Boolean
     const approver2 = document.getElementById("Approver2").checked // Boolean
     const mnovChecked = document.getElementById("MVNO").checked;
@@ -8824,18 +8909,89 @@
     const Other = document.getElementById("Other").checked;
     const launchDate = $("#launchDate").val() !== '';
 
+    if (emailaddress1) {
+      console.log(emailaddress1)
+    } else {
+      console.log(emailaddress1)
+    }
+
 
     if ((url && uspresenceecord && address1_line1 && address1_city &&
       address1_stateorprovince && address1_postalcode && telephone1 && emailaddress1
       && firstname1 && firstname2 && lastname1 && lastname2 && email1 && email2 && phonenumber1 && phonenumber2 && launchDate) &&
       (mnovChecked || iotChecked) && (approver1 || approver2) && (handSet || fixedWireless || telematics || m2M || Wearables || TabletLaptop || Other)) {
+
       $('#btnNext').removeAttr('disabled');
       $('#submitFromButton').removeAttr('disabled');
-    }
-    else {
+
+      
+
+      $("#nameMessage1").text("")
+      $("#nameMessage2").text("")
+      $("#nameMessage3").text("")
+      $("#nameMessage4").text("")
+      $("#phoneMessage1").text("")
+      $("#phoneMessage2").text("")
+      $("#emailMessage1").text("")
+      $("#emailMessage2").text("")
+
+    } else {
+      if (firstname1) {
+        $("#nameMessage1").text("")
+      } else {
+        $("#nameMessage1").text("Please enter a valid Name.")
+      }
+      if (lastname1) {
+        $("#nameMessage2").text("")
+      } else {
+        $("#nameMessage2").text("Please enter a valid Name.")
+      }
+      if (firstname2) {
+        $("#nameMessage3").text("")
+      } else {
+        $("#nameMessage3").text("Please enter a valid Name.")
+      }
+      if (lastname2) {
+     
+        $("#nameMessage4").text("")
+      } else {
+        $("#nameMessage4").text("Please enter a valid Name.")
+      }
+      if (phonenumber1) {
+    
+        $("#phoneMessage1").text("")
+      } else {
+ 
+        $("#phoneMessage1").text("Please enter a valid Number.")
+      }
+      if (phonenumber2) {
+    
+        $("#phoneMessage2").text("")
+      } else {
+    
+        $("#phoneMessage2").text("Please enter a valid Number.")
+      }
+      if (email1) {
+ 
+        $("#emailMessage1").text("")
+      } else {
+ 
+        $("#emailMessage1").text("Please enter a valid Email.")
+      }
+      if (email2) {
+        
+        $("#emailMessage2").text("")
+      } else {
+ 
+        $("#emailMessage2").text("Please enter a valid Email.")
+      }
+
+
+
       $('#btnNext').attr('disabled', 'disabled');
       $('#submitFromButton').attr('disabled', 'disabled');
     }
+
   }
 
   // CRUD Functions
@@ -11615,6 +11771,6 @@
       $(".consumerRemove").removeClass("hidden");
     }
   }
-</script>
 
+</script>
 </html>
