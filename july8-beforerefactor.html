@@ -4082,7 +4082,8 @@
                       href="https://wholesale.t-mobile.com/iot/device-certification/"
                       target="_blank">https://wholesale.t-mobile.com/iot/device-certification/</a><a
                       href="https://wholesale.t-mobile.com/iot/modules-chipsets-devices/">
-                      <span class="glyphicon glyphicon-share"></span>
+                  
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000"><path d="M216-144q-29.7 0-50.85-21.15Q144-186.3 144-216v-528q0-29.7 21.15-50.85Q186.3-816 216-816h264v72H216v528h528v-264h72v264q0 29.7-21.15 50.85Q773.7-144 744-144H216Zm171-192-51-51 357-357H576v-72h240v240h-72v-117L387-336Z"/></svg>
                     </a>
                   </label>
                   <label style="font-weight: bold; margin-top: 10px; display: block;">
@@ -4090,7 +4091,7 @@
                       href="https://wholesale.t-mobile.com/iot/modules-chipsets-devices/"
                       target="_blank">https://wholesale.t-mobile.com/iot/modules-chipsets-devices/</a><a
                       href="https://wholesale.t-mobile.com/iot/modules-chipsets-devices/">
-                      <span class="glyphicon glyphicon-share"></span>
+                      <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000"><path d="M216-144q-29.7 0-50.85-21.15Q144-186.3 144-216v-528q0-29.7 21.15-50.85Q186.3-816 216-816h264v72H216v528h528v-264h72v264q0 29.7-21.15 50.85Q773.7-144 744-144H216Zm171-192-51-51 357-357H576v-72h240v240h-72v-117L387-336Z"/></svg>
                     </a>
                   </label>
                 </div>
@@ -4205,6 +4206,7 @@
                               </select>
                       
                             </td>
+                            <td id="hideth" style="text-align: center;" class="hidden"> - </td>
                             <td id="operating-comment" class="hidden"><input name="" type="text" maxlength="50" id="operating-comment" value="" placeholder="Enter Name"
                               class="text input-box form-control device-module-controls txt-tac  " /></td>
                             <td>
@@ -8027,10 +8029,13 @@
   function showOperatingComment(elem, id = "") {
     if (elem.value === "others") {
       $(`#operating-comment${id}`).removeClass("hidden")
+      $(`#hideth${id}`).addClass("hidden")
+
      
     }
    else {
       $(`#operating-comment${id}`).addClass("hidden")
+      $(`#hideth${id}`).removeClass("hidden")
     }
     let opm = $('#dropdownDeviceInfoOperatingSystem1').val()
     let op1 = $('#op1').val()
@@ -8039,10 +8044,47 @@
     let op4 = $('#op4').val()
     if (opm === "others" || op1 === "others" || op2 === "others" || op4 === "others" || op3 === "others"  ) {
       $(`#operating-comment-th`).removeClass("hidden") 
+      if(opm === "others") {
+        $(`#hideth`).addClass("hidden")
+      } else {
+        $(`#hideth`).removeClass("hidden")
+      }
+      if(op1 === "others") {
+        $(`#hideth1`).addClass("hidden")
+      } else {
+        $(`#hideth1`).removeClass("hidden")
+      }
+      if(op2 === "others") {
+        $(`#hideth2`).addClass("hidden")
+      } else {
+        $(`#hideth2`).removeClass("hidden")
+      }
+      if(op3 === "others") {
+        $(`#hideth3`).addClass("hidden")
+      } else {
+        $(`#hideth3`).removeClass("hidden")
+      }
+      if(op4 === "others") {
+        $(`#hideth4`).addClass("hidden")
+      } else {
+        $(`#hideth4`).removeClass("hidden")
+      }
+      if(op4 === "others") {
+        $(`#hideth5`).addClass("hidden")
+      } else {
+        $(`#hideth5`).removeClass("hidden")
+      }
       
   } else {
     $(`#operating-comment-th`).addClass("hidden")
     $(`#operating-comment${id}`).addClass("hidden")
+    $(`#hideth`).addClass("hidden")
+    $(`#hideth1`).addClass("hidden")
+    $(`#hideth3`).addClass("hidden")
+    $(`#hideth2`).addClass("hidden")
+    $(`#hideth4`).addClass("hidden")
+    $(`#hideth5`).addClass("hidden")
+    
   }
     
   }
@@ -8106,6 +8148,7 @@
   }
 
   function addRowDevice2(row) {
+    showOperatingComment(this)
     var tableBody = $("#device-grid-2");
     let tableBodyLength = document.getElementById("device-grid-body-2");
     const actionButton = $(`#action-button-grid2-${row}`);
@@ -8131,6 +8174,7 @@
                                   <option value="others">Other</option>
                                 </select>
                               </td>
+                              <td id="hideth${row + 1}" style="text-align: center;" class="hidden"> - </td>
                               <td id="operating-comment${row + 1}" class="hidden" ><input name="" type="text" maxlength="50" value="" placeholder="Enter Name"
                               class="text input-box form-control device-module-controls txt-tac  " /></td>
                             <td>
