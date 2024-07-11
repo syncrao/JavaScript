@@ -864,7 +864,7 @@ button:disabled {
         }
         .tab-container {
             display: flex;
-            justify-content: space-between;
+            
         }
         .tab {
             padding: 10px;
@@ -900,6 +900,7 @@ button:disabled {
         .tooltip .tooltiptext {
             visibility: hidden;
             width: 200px;
+            height: fit-content;
             background-color: #555;
             color: #fff;
             text-align: center;
@@ -912,6 +913,7 @@ button:disabled {
             margin-left: -100px;
             opacity: 0;
             transition: opacity 0.3s;
+         
         }
         .tooltip .tooltiptext::after {
             content: '';
