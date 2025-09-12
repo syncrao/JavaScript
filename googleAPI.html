@@ -1,0 +1,37 @@
+
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<div id="g_id_onload"
+     data-client_id="136419210304-emidhp4v69n2oslarprvj8l6s4l61tj6.apps.googleusercontent.com"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="outline"
+     data-text="signin_with"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  async function handleCredentialResponse(response) {
+    console.log("Google ID Token:", response.credential);
+
+    try {
+   
+      const res = await axios.post("http://127.0.0.1:8000/user/google/", {
+        google_token: response.credential
+      });
+
+      console.log("Backend Response:", res.data);
+    } catch (err) {
+      console.error("Error:", err.response?.data || err.message);
+    }
+  }
+</script>

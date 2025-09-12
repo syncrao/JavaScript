@@ -1,12 +1,12 @@
 import axios from "axios";
-const URL = "http://127.0.0.1:8001";
+const URL = "http://127.0.0.1:8000";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export async function getRequest(route, authToken = null) {
-  await sleep(2000)
+  await sleep(1000)
   console.log(`${route} Getting...`)
   try {
     const response = await axios.get(`${URL}/${route}`, {
@@ -19,7 +19,7 @@ export async function getRequest(route, authToken = null) {
 }
 
 export async function postRequest(route, data, authToken = "") {
-  await sleep(2000)
+  await sleep(1000)
   console.log(`${route} Posting...`)
   try {
     const response = await axios.post(`${URL}/${route}`, data, {
@@ -33,7 +33,7 @@ export async function postRequest(route, data, authToken = "") {
 }
 
 export async function getAccessToken(route, refresh) {
-  await sleep(2000)
+  await sleep(1000)
   console.log(`${route} Getting Token...`)
   try {
     const response = await axios.post(`${URL}/${route}`, { refresh });
@@ -44,7 +44,7 @@ export async function getAccessToken(route, refresh) {
 }
 
 export async function updateRequest(route, data, authToken = null) {
-  await sleep(2000)
+  await sleep(1000)
   console.log(`${route} Updating...`)
   try {
     const response = await axios.put(`${URL}/${route}`, data, {
@@ -57,7 +57,7 @@ export async function updateRequest(route, data, authToken = null) {
 }
 
 export async function deleteRequest(route, authToken) {
-  await sleep(2000)
+  await sleep(1000)
   console.log(`${route} Deleting...`)
    try {
     const response = await axios.delete(`${URL}/${route}`,{
