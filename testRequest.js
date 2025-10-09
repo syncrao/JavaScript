@@ -8,8 +8,8 @@ import {
 
 
 const registerData = {
-   username: "shah",
-  password: "raoone11R@",
+   username: "shah_rukh_rao",
+  password: "raoone11",
   email: "shah@gmail.com"
 };
 
@@ -19,10 +19,30 @@ const updateData = {
   email: "shah_rukh@gmail.com"
 };
 
+const order = {
+  "address_id": 1,
+  "items": [
+    {
+      " ": 5, 
+      "quantity": 1
+    },
+    {
+      "inventory": 8,
+      "quantity": 2
+    }
+  ]
+}
+
+const rating = {
+  "rating": 4,
+  "review": "Beautiful outfit and great quality!"
+}
+
+
 async function create() {
   console.log("Testing...");
   // await postRequest('user/register/', registerData)
-  // let {access, refresh} = await postRequest('user/login/', registerData)
+  let {access, refresh} = await postRequest('user/login/', registerData)
   // await getRequest('user/me', access)
   // await updateRequest('user/2/', updateData, access)
   // await getRequest('user/2/', access)
@@ -32,10 +52,18 @@ async function create() {
   // await postRequest('user/login/', registerData)
   // await postRequest('user/reset_password/', {email:"truedost4@gmail.com", code:236817, })
   // await postRequest('user/login/', registerData)
-
-  await getRequest('product/1/')
-  await getRequest('product/categories/')
-  await getRequest('product/category/1/')
+  // await getRequest('products/last-updated/')
+  // await getRequest('products')
+  // await getRequest('products/1/')
+  // await getRequest('products/categories/')
+  // await getRequest('products/categories/1/')
+  // await getRequest('products/inventory/1/')
+  // postRequest("orders/create/", order, access)
+  await getRequest('products/ratings/1/', access)
+  await postRequest('products/ratings/1/', rating, access)
+  await getRequest('products/ratings/1/', access)
+  await getRequest('products/rating/1/', access)
+  await getRequest('products/ratings/summary/1/', access)
   console.log("End");
 }
 
